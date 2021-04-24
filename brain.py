@@ -105,7 +105,9 @@ def model(shape):
 	X = BatchNormalization(axis = 3, name = 'bn0')(X)
 	X = Activation('relu')(X)
 	X = MaxPooling2D((4, 4), name='max_pool0')(X)
-	X = MaxPooling2D((4, 4), name='max_pool1')(X) # shape=(?, 14, 14, 32)
+	X = MaxPooling2D((4, 4), name='max_pool1')(X)
+	X = MaxPooling2D((4, 4), name='max_pool2')(X)
+
 	X = Flatten()(X)
 	X = Dense(1, activation='sigmoid', name='fc')(X) 
 	model = Model(inputs = X_input, outputs = X, name='Model')
